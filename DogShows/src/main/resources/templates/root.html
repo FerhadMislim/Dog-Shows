@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<title>Home Page</title>
+</head>
+<body>
+	<h1>Welcome To Dogs Show Page</h1>
+	<br>
+	<br>
+	<ul>
+		<li>Go to <a th:href="@{/login}">Login Page</a></li>
+		<li>Go to <a th:href="@{/register}">Registration Page</a></li>
+		<li>Go to <a th:href="@{/showList}">Show List</a></li>
+		<li>Go to <a th:href="@{/userPage}">User Page</a></li>
+	</ul>
+	<br>
+	<br>
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+			<input class="btn" type="submit" value="Logout">
+		</form>
+	</div><br>
+	<br>
+	<div class="footer">
+		<div class="content">
+			<p>Sheridan College / Ferhad Mislim</p>
+		</div>
+	</div>
+</body>
+</html>

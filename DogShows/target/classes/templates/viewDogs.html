@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="ISO-8859-1">
+<title>View Contacts</title>
+</head>
+<body>
+	<h1>Dogs List</h1>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Owner Name</th>
+			<th>Breed</th>
+			<th>Gender</th>
+			<th>classSpecialty</th>
+			<th>Action</th>
+		</tr>
+		<tr th:each="dog,c : ${dogs}" >
+			<td th:text="${dog.name}">aaa</td>
+			<td th:text="${dog.ownerName}">aaa</td>
+			<td th:text="${breeds[c.count-1]}">aaa</td>
+			<td th:text="${dog.gender}">aaa</td>
+			<td th:text="${dog.classSpecialty}">aaa</td>
+			<td><a th:href="@{/editDog/{id}(id=${dog.entryNum})}">EDIT</a> |
+				<a th:href="@{/delete/{id}(id=${dog.entryNum})}">DELETE</a></td>
+		</tr>
+	</table>
+	<ul>
+		<li>Go to <a th:href="@{/userPage}">User Page</a></li>
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<title>Show List</title>
+</head>
+<body>
+	<h1>Show List</h1>
+	<table border="1">
+		<tr>
+			<th>Group Of Dog Shows</th>
+		</tr>
+		<tr>
+			<td><ul th:each="record : ${list}">
+					<li th:text="${record}"></li>
+				</ul></td>
+		</tr>
+	</table>
+	<ul>
+		<li>Go to <a th:href="@{/userPage}">User Page</a></li>
+		<li>Go to <a th:href="@{/}">Root Page</a></li>
+	</ul>
+
+</body>
+</html>

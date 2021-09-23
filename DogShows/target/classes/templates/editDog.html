@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{../css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="ISO-8859-1">
+<title>Edit Dog</title>
+</head>
+<body>
+	<h1>Edit Dog</h1>
+	<form th:action="@{/editDog}" th:object=${dog} method="post">
+		<input type="hidden" th:field='*{entryNum}'> Name: <input
+			class="inp" type="text" th:field="*{name}"><br>
+		<br> Owner Name: <input class="inp" type="text"
+			th:field="*{ownerName}"><br>
+		<br> Breed: <select class="inp" th:field="*{breedId}">
+			<option th:each="breed: ${breeds}" th:value="${breed.breedId}"
+				th:text="${breed.breedName}">--- Select Breed ---</option>
+		</select><br>
+		<br> Gender: <span class="inp"> <label><input
+				type="radio" value="Male" th:field="*{gender}" required>Male</label>
+			<label><input type="radio" value="Female"
+				th:field="*{gender}">Female</label>
+		</span><br>
+		<br> Class/Speciality: <span class="inp"> <label><input
+				type="radio" value="Class" th:field="*{classSpecialty}" required>Class</label>
+			<label><input type="radio" value="Specialty"
+				th:field="*{classSpecialty}">Specialty</label>
+		</span><br>
+		<br> <input class="btn" type="submit" value="Edit"><br>
+		<br>
+	</form>
+	<br>
+	<br>
+	<ul>
+
+	</ul>
+	<li><a th:href="@{/viewDogs}">View Dogs</a></li>
+	<li><a th:href="@{/userPage}">User Page</a></li>
+</body>
+</html>

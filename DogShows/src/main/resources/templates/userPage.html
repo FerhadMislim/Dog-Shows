@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmnls:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<title>User Page</title>
+</head>
+<body>
+	<h1>User Page</h1>
+	<br>
+	<br>
+	<ul>
+		<li>Go to <a th:href="@{/addDog}">Add Dogs</a></li>
+		<li>Go to <a th:href="@{/addBreed}">Add Dog Breeds</a></li>
+		<li>Go to <a th:href="@{/viewDogs}">View Dogs List</a></li>
+		<li>Go to <a th:href="@{/showList}">Show List</a></li>
+		<li>Go to <a th:href="@{/}">Root Page</a></li>
+	</ul>
+	<br>
+	<br>
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+			<input class="btn" type="submit" value="Logout">
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmnls:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="ISO-8859-1">
+<title>Access Denied</title>
+</head>
+<body>
+	<h1>You do not have permission to access this page</h1>
+	Go to
+	<a th:href="@{/userPage}">User page</a>
+</body>
+</html>

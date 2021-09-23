@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="ISO-8859-1">
+<title>New Breeds</title>
+</head>
+<body>
+	<h1>New Breeds</h1>
+	<form th:action="@{/addBreed}" th:object=${breed} method="post">
+		Breed Name: <input class="inp" type="text" th:field="*{breedName}" required><br>
+		<br> <input class="btn" type="submit" value="Add"><br>
+		<br>
+	</form>
+	<br>
+	<br>
+	<ul>
+		<li>Go to <a th:href="@{/userPage}">User Page</a></li>
+		<li>Go to <a th:href="@{/viewDogs}">View Dogs</a></li>
+	</ul>
+
+
+</body>
+</html>

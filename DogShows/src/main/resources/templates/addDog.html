@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmnls:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link th:href="@{css/main.css}" href="../static/css/main.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="ISO-8859-1">
+<title>Add Dogs</title>
+</head>
+<body>
+	<h1>Add Dogs</h1>
+	<form th:action="@{/addDog}" th:object=${dog} method="post">
+		Dog Name: <input class="inp" type="text" th:field="*{name}" required><br>
+
+		<span sec:authorize="hasRole('ROLE_ADMIN')"><br> Owner
+			Name: <input class="inp" type="text" th:field="*{ownerName}"><br></span>
+
+		<br> Breed: <select class="inp" th:field="*{breedId}">
+			<option th:each="breed: ${breeds}" th:value="${breed.breedId}"
+				th:text="${breed.breedName}">--- Select Breed ---</option>
+		</select><br> <br> Gender: <span class="inp"> <label><input
+				type="radio" value="Male" th:field="*{gender}" checked>Male</label>
+			<label><input type="radio" value="Female"
+				th:field="*{gender}">Female</label>
+		</span><br> <br> Class/Speciality: <span class="inp"> <label><input
+				type="radio" value="Class" th:field="*{classSpecialty}" checked>Class</label>
+			<label><input type="radio" value="Specialty"
+				th:field="*{classSpecialty}">Specialty</label>
+		</span><br> <br> <input class="btn" type="submit" value="Add"><br>
+		<br>
+	</form>
+	<br>
+	<br>
+	<ul>
+		<li>Go to <a th:href="@{/userPage}">User Page</a></li>
+		<li>Go to <a th:href="@{/viewDogs}">View Dogs</a></li>
+	</ul>
+
+
+</body>
+</html>
